@@ -42,6 +42,8 @@ if errorlevel 1 (
 xcopy /e /i /y "ms-playwright" "dist\MAX_Reaction\ms-playwright" >nul
 copy /y "daily.bat" "dist\MAX_Reaction\daily.bat" >nul
 copy /y "login.bat" "dist\MAX_Reaction\login.bat" >nul
+copy /y "bot_url.txt" "dist\MAX_Reaction\bot_url.txt" >nul
+
 if exist "daily_hidden.vbs" copy /y "daily_hidden.vbs" "dist\MAX_Reaction\daily_hidden.vbs" >nul
 
 if exist "package_portable.bat" copy /y "package_portable.bat" "dist\MAX_Reaction\package_portable.bat" >nul
