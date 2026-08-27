@@ -158,7 +158,6 @@ daily_hidden.vbs
 ```text
 MAX-Reaction/
 ├── README.md
-├── README_RU.md
 ├── LICENSE
 ├── .gitignore
 ├── bot_url.txt
