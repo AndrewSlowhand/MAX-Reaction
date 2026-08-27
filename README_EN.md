@@ -156,7 +156,7 @@ This allows the automation to run without a visible command prompt window.
 ```text
 MAX-Reaction/
 ├── README.md
-├── README_RU.md
+├── README_EN.md
 ├── LICENSE
 ├── .gitignore
 ├── bot_url.txt
