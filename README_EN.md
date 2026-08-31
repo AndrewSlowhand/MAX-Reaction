@@ -4,11 +4,12 @@ Browser-based automation for reactions and actions in MAX chat bots.
 
 The project is intended for automating interaction with MAX bots. Different organizations may use different bot URLs, while the interaction principle remains the same.
 
-> **Important:** This project does not contain the URL of any specific bot. Before the first run, the user must provide the URL of the MAX bot they want to use.
+> **Important:** starting with version 1.3.1, use a **direct MAX Web URL** (`https://web.max.ru/...`) for the bot/chat. This avoids interception by the installed MAX desktop application.
 
 ## Features
 
 - automatic MAX launch using bundled Chromium;
+- operation through the MAX Web version;
 - automatic handling of the **"Open in browser"** button when it appears;
 - 👍 reaction when available;
 - **"Полезно" (Useful)** action when available;
@@ -19,25 +20,7 @@ The project is intended for automating interaction with MAX bots. Different orga
 - hidden execution without a visible CMD window;
 - portable build: Python is not required on the target computer.
 
-## How it works
-
-```text
-Start
-  ↓
-Chromium
-  ↓
-MAX bot
-  ↓
-"Open in browser" (if shown)
-  ↓
-MAX profile
-  ↓
-New posts
-  ↓
-👍 / Useful / 🔥
-```
-
-## 1. Configure your bot
+## 1. Configure the MAX Web URL
 
 Open:
 
@@ -45,13 +28,23 @@ Open:
 bot_url.txt
 ```
 
-and enter the URL of the MAX bot you want to use, for example:
+and enter the **MAX Web URL of the required bot/chat**, for example:
 
 ```text
-https://max.ru/YOUR_BOT
+https://web.max.ru/YOUR_CHAT_ID
 ```
 
-Different organizations can use different MAX bots. No code changes are required — only the bot URL needs to be changed.
+MAX officially provides its web version at `https://web.max.ru/`.
+
+### How to get the URL
+
+1. Open `https://web.max.ru/`.
+2. Sign in to your MAX profile.
+3. Open the required bot/chat.
+4. Copy the URL from the browser address bar.
+5. Paste it into `bot_url.txt`.
+
+> Do not publish a specific organization's bot URL in the public repository unless you intend to make it public.
 
 ## 2. First run
 
@@ -61,11 +54,11 @@ Run:
 login.bat
 ```
 
-Chromium will open.
+The bundled Chromium browser will open MAX Web.
 
-If MAX displays the **"Open in browser"** button, the program will click it automatically.
+If the profile is not authorized yet, sign in to MAX.
 
-Then sign in to the required MAX profile.
+After authorization, the script continues with the configured bot/chat.
 
 ## 3. Daily execution
 
@@ -106,13 +99,13 @@ Different MAX profiles can be stored separately.
 For example:
 
 ```bat
-login.bat "https://max.ru/example_bot" account1
+login.bat "https://web.max.ru/123456789" account1
 ```
 
 and:
 
 ```bat
-login.bat "https://max.ru/example_bot" account2
+login.bat "https://web.max.ru/123456789" account2
 ```
 
 ## Build
